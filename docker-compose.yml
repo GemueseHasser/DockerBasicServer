@@ -1,0 +1,10 @@
+version: "3.7"
+
+services:
+  basicServer:
+    image: "server:latest"
+    container_name: "BasicServer"
+    restart: 'unless-stopped'
+    ports:
+      - '25565:25565/tcp'
+    command: 'java -server -Xms3G -Xmx3G -jar paper.jar --nogui'
