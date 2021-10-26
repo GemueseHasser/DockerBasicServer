@@ -41,4 +41,9 @@ RUN set -eux \
  # remove the build dependencies
  && apk del .build-dependencies \
  # accept eula
- && echo "eula = true" > /opt/server/eula.txt
+ && echo "eula = true" > /opt/server/eula.txt \
+ # change owner of execution directory
+ && chown -R nobody:nobody "$SERVER_DIRECTORY"
+
+# change default user account
+USER nobody:nobody
